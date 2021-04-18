@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+        }
+
+        nav {
+            width: 100px;
+            height: 100vh;
+            background-color: bisque;
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(247, 205, 167);
+            margin-bottom: 20px;
+            border-radius: 0px 0px 25px 25px;
+            opacity: 0.5;
+            font-size: 12px;
+            color: lightslategray;
+
+            cursor: pointer;
+            transition: 0.3s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding-bottom: 5px;
+
+        }
+
+        .btn.active {
+            background-color: rgb(55, 85, 116);
+        }
+
+        .btn:hover {
+            opacity: 1;
+        }
+
+        main {
+            width: calc(100% - 100px);
+            height: 100vh;
+            background-color: rgb(233, 161, 138);
+            display: flex;
+            justify-content: center;
+            padding-top: 25px;
+        }
+
+        .hightlight {
+            width: 80%;
+            height: 231px;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bannerA,
+        #bannerB,
+        #bannerC {
+            padding: 99px 0px;
+        }
+
+        /* .active {
+            display: none;
+        } */
+
+        .banner {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(238, 240, 240);
+
+            font-size: 22px;
+            color: lightslategray;
+            display: none;
+        }
+
+        .banner.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="btn-group">
+            <div id="btnA" index=0 class="btn">按</div>
+            <div id="btnB" idnex=1 class="btn">按按</div>
+            <div id="btnC" idnex=2 class="btn">按按按</div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hightlight">
+            <div id="bannerA" class="banner" index=0>如果要為這段愛情加上一個期限</div>
+            <div id="bannerB" class="banner" index=1>我希望是</div>
+            <div id="bannerC" class="banner" index=3>一萬年</div>
+        </div>
+    </main>
+
+    <script>
+        // 無名屬性
+        // var btnA = document.querySelector('#btnA')
+        // var btnB = document.querySelector('#btnB')
+        // var btnC = document.querySelector('#btnC')
+
+        // var bannerA = document.querySelector('#bannerA')
+        // var bannerB = document.querySelector('#bannerB')
+        // var bannerC = document.querySelector('#bannerC')
+
+        // console.log(btnA, btnB, btnC)
+        // console.log(bannerA, bannerB, bannerC)
+
+        // function removeAllactive() {
+        //     bannerA.classList.remove('active')
+        //     bannerB.classList.remove('active')
+        //     bannerC.classList.remove('active')
+        // }
+
+
+        // btnA.onclick = function () {
+        //     removeAllactive()
+        //     bannerA.classList.add('active')
+        // }
+
+        // btnB.onclick = function () {
+        //     removeAllactive()
+        //     bannerB.classList.add('active')
+        // }
+
+        // btnC.onclick = function () {
+        //     removeAllactive()
+        //     bannerC.classList.add('active')
+        // }
+
+        // 陣列＋迴圈
+        var BTN = document.querySelectorAll('.btn')
+        console.log(BTN)
+
+        var BANNER = document.querySelectorAll('.banner')
+        console.log(BANNER)
+
+        // ---
+        // for (let index = 0; index < BTN.length; index++) {
+        //     BTN[index].onclick = function(){
+        //         BTN[index].classList.add('active')
+        //     }
+        // }
+
+        function removeAllactive() {
+            // let index = 0; index < BANNER.length; index++;
+            // BANNER[index].classList.remove('active');
+            bannerA.classList.remove('active')
+            bannerB.classList.remove('active')
+            bannerC.classList.remove('active')
+        }
+
+        for (let index = 0; index < BANNER.length; index++) {
+            BTN[index].onclick = function () {
+                removeAllactive()
+                BTN[index].classList.add('active');
+                BANNER[index].classList.add('active');
+            }
+        }
+
+    //---
+        // BANNER[index].onclick = function (){
+        //         if (BTN[index].classList.add('active')) {
+        //             BANNER[index].classList.add('active')
+        //         } else {
+        //             BANNER[index].classList.remove('active')
+        //         }
+        //     }
+
+    // ---
+            // BANNER[index].onclick = function(){
+            //     if (BANNER[index] == BTN[index]) {
+            //         BANNER[index].classList.add('active')
+            //     } else {
+            //         BANNER[index].classList.remove('active')
+            //     }
+            //     // BANNER[index++].classList.remove('active')
+            // }
+
+    // ---
+        // BTN.onclick = function () {
+        //     for (let index = 0; index < BTN.length; index++) {
+
+        //         if (BTN[index] == BANNER[index]) {
+        //             function addactive() {
+        //                 BTN[index].classList.add('active');
+        //                 BANNER[index].classList.add('active');
+        //             }
+        //         } else {
+        //             BTN[index].classList.remove('active');
+        //             BANNER[index].classList.remove('active');
+        //         }
+        //     }
+        // }
+
+        // 如果 BTN(選到的按鈕標籤順序) 和 BANNER(選到的按鈕標籤順序) 是一樣的
+        // --> 就執行 BANNER(選到的按鈕標籤順序) 加上active
+
+    </script>
+
+</body>
+
+</html>

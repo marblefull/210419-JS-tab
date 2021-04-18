@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+        }
+
+        nav {
+            width: 100px;
+            height: 100vh;
+            background-color: bisque;
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(247, 205, 167);
+            margin-bottom: 20px;
+            border-radius: 0px 0px 25px 25px;
+            opacity: 0.5;
+            font-size: 12px;
+            color: lightslategray;
+            padding-bottom: 5px;
+            display: flex;
+            cursor: pointer;
+            transition: 0.3s;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn.active {
+            background-color: rgb(55, 85, 116);
+        }
+
+        .btn:hover {
+            opacity: 1;
+        }
+
+        main {
+            width: calc(100% - 100px);
+            height: 100vh;
+            background-color: rgb(233, 161, 138);
+            display: flex;
+            justify-content: center;
+            padding-top: 25px;
+        }
+
+        .hightlight {
+            width: 80%;
+            height: 231px;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bannerA,
+        #bannerB,
+        #bannerC {
+            padding: 99px 0px;
+        }
+
+        .active {
+            display: none;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(238, 240, 240);
+
+            font-size: 22px;
+            color: lightslategray;
+            display: none;
+        }
+
+        .banner.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="btn-group">
+            <div id="btnA" class="btn">按</div>
+            <div id="btnB" class="btn">按按</div>
+            <div id="btnC" class="btn">按按按</div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hightlight">
+            <div id="bannerA" class="banner">如果要為這段愛情加上一個期限</div>
+            <div id="bannerB" class="banner">我希望是</div>
+            <div id="bannerC" class="banner">一萬年</div>
+        </div>
+    </main>
+
+    <script>
+        // 無名屬性
+        var btnA = document.querySelector('#btnA')
+        var btnB = document.querySelector('#btnB')
+        var btnC = document.querySelector('#btnC')
+
+        var bannerA = document.querySelector('#bannerA')
+        var bannerB = document.querySelector('#bannerB')
+        var bannerC = document.querySelector('#bannerC')
+
+        console.log(btnA, btnB, btnC)
+        console.log(bannerA, bannerB, bannerC)
+
+        function removeAllactive() {
+            bannerA.classList.remove('active')
+            bannerB.classList.remove('active')
+            bannerC.classList.remove('active')
+        }
+
+
+        btnA.onclick = function () {
+            removeAllactive()
+            bannerA.classList.add('active')
+        }
+
+        btnB.onclick = function () {
+            removeAllactive()
+            bannerB.classList.add('active')
+        }
+
+        btnC.onclick = function () {
+            removeAllactive()
+            bannerC.classList.add('active')
+        }
+
+
+    </script>
+
+</body>
+
+</html>
